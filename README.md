@@ -1,33 +1,31 @@
-# &#x20;Orderly
+# Orderly
 
-### WhatsApp Business Order Management, Made Simple.
+**AI-Powered WhatsApp Business Order Management**
 
-**Orderly** is an AI-powered WhatsApp Business Order Management platform designed to help small businesses organize customer conversations, extract order details using AI, manage order confirmations, track orders, export data to Excel, and calculate profits — all through one simple, elegant dashboard.
+Orderly is an AI-powered WhatsApp Business Order Management platform designed to help small businesses organize customer conversations, manage orders, handle confirmations, track deliveries, export records to Excel, and calculate profits through one simple dashboard.
 
-Turn scattered WhatsApp conversations into organized business operations.
+Orderly turns everyday WhatsApp conversations into structured, manageable business orders while keeping the seller in control.
 
----
+## Key Features
 
-## &#x20;Key Features
+### AI-Powered Order Extraction
+- Extracts customer and order details from WhatsApp conversations.
+- Identifies products, sizes, quantities, addresses, and agreed prices.
+- Highlights missing information and unclear details.
+- Generates structured order drafts for seller review.
+- Allows sellers to edit and approve extracted information.
+- Uses Python for calculations to ensure accurate totals.
 
-### 🤖 AI-Powered Order Extraction
+### WhatsApp Business Integration
+- Connects with WhatsApp Business through the WhatsApp Cloud API.
+- Receives customer messages through webhooks.
+- Organizes conversations for easier order management.
+- Supports the planned Meta Embedded Signup integration.
+- Aims to support WhatsApp Coexistence, allowing eligible businesses to continue using the WhatsApp Business app alongside Orderly.
 
-- Automatically extract order details from customer conversations.
-- Identify customer names, products, quantities, sizes, prices, and delivery information.
-- Review and edit AI-generated order drafts before saving.
-- Support for multiple AI providers with fallback options.
-
-### 💬 WhatsApp Integration
-
-- Receive customer messages through WhatsApp Business Cloud API.
-- Organize conversations in one dashboard.
-- Send customer welcome messages.
-- Send order confirmation messages.
-- Identify customer replies and classify confirmations, changes, and cancellations.
-
-### 📦 Smart Order Management
-
-- Track orders through different stages:
+### Order Management
+- Organizes orders in a structured dashboard.
+- Tracks order statuses:
   - New
   - Confirmation Sent
   - Change Requested
@@ -35,381 +33,341 @@ Turn scattered WhatsApp conversations into organized business operations.
   - Confirmed
   - Dispatched
   - Cancelled
-- Edit extracted order details.
-- Manage multiple items within an order.
-- Add orders received through phone calls.
-- Maintain order history and audit records.
+- Allows sellers to review and update order information.
+- Supports manual entry for orders received through phone calls.
+- Keeps sellers in control of customer communication and order decisions.
 
-### 📊 Profit Calculation
+### Order Confirmation
+- Generates buyer confirmation messages for seller review.
+- Allows sellers to edit and send confirmation messages.
+- Identifies customer replies as confirmations, change requests, or cancellations.
+- Updates order status based on the customer's response.
 
-- Upload purchase-price lists.
-- Calculate order-wise profits.
-- View daily profit summaries.
-- Export profit reports to Excel.
-- Keep profit information restricted to the owner interface.
+**Important:** AI prepares suggestions and drafts. It does not independently send messages or make business decisions.
 
-### 📁 Excel Import & Export
+### Excel Management
+- Exports organized orders to Excel.
+- Supports importing edited Excel files.
+- Provides a preview before applying imported changes.
+- Validates imported information.
+- Identifies conflicts using Order IDs.
+- Avoids silently overwriting existing order information.
 
-- Export confirmed orders to Excel.
-- Import existing spreadsheets.
-- Preview and validate changes before applying them.
-- Download profit reports.
+Excel exports are snapshots of dashboard data rather than live two-way synchronization.
 
-### 🔐 Authentication & Security
+### Profit Management
+- Supports seller-provided purchase-price lists.
+- Calculates order costs and estimated profit.
+- Uses structured order information for reporting.
+- Keeps business calculations under the seller's control.
 
-- Secure Google Sign-In using Supabase Auth.
-- Protected dashboard routes.
-- Owner and staff interface roles.
-- Customer phone number masking in chat lists.
-- Secure backend authentication and webhook signature verification.
+### Authentication
+- Google Sign-In through Supabase Authentication.
+- Secure account access.
+- Stores account and integration-related metadata through Supabase.
 
-### 💾 Backup & Restore
-
-- Download business data as a JSON backup.
-- Restore data from previous backups.
-- Keep business records stored locally in the browser.
-
----
-
-## 🛠️ Tech Stack
-
-| Category         | Technologies                |
-| ---------------- | --------------------------- |
-| Frontend         | React, Vite, TypeScript     |
-| Styling          | Tailwind CSS                |
-| Animations       | Framer Motion               |
-| Routing          | React Router                |
-| State Management | Zustand                     |
-| Data Tables      | TanStack Table              |
-| Local Database   | Dexie.js, IndexedDB         |
-| Excel Processing | ExcelJS                     |
-| Backend          | Python, FastAPI             |
-| Authentication   | Supabase Auth               |
-| Database         | Supabase PostgreSQL         |
-| AI Integration   | Gemini, Groq, Mistral       |
-| Messaging        | WhatsApp Business Cloud API |
+### Backup and Restore
+- Allows sellers to create backups of their business data.
+- Supports restoring data from backup files.
+- Keeps backup files under the seller's control.
+- Supports saving backups locally or to the seller's own cloud storage.
 
 ---
 
-## 🏗️ Architecture
+## Product Vision
 
-Orderly uses a hybrid architecture to separate authentication and temporary messaging infrastructure from local business data.
+Orderly aims to provide small businesses with a complete WhatsApp-based order management experience.
+
+The intended customer onboarding experience is:
+
+1. The shopkeeper signs up using Google.
+2. The shopkeeper selects **Connect WhatsApp Business**.
+3. Meta Embedded Signup guides the shopkeeper through connecting an eligible WhatsApp Business number.
+4. The shopkeeper completes the required phone number verification and connection steps.
+5. With supported WhatsApp Coexistence, the shopkeeper can continue using the WhatsApp Business app while managing orders through Orderly.
+
+The goal is to make order management easier without forcing shopkeepers to change their everyday communication habits.
+
+## Meta Developer Integration
+
+The Meta Developer account and WhatsApp Cloud API test environment have been set up.
+
+### Current Meta Setup
+
+- Meta Developer account created.
+- WhatsApp product configured in the Meta app.
+- WhatsApp Cloud API test environment initialized.
+- Test Phone Number ID obtained.
+- Test recipient phone number added and verified.
+- Temporary access token generated.
+
+### Meta Integration Requirements
+
+The complete onboarding experience depends on Meta's platform requirements, including:
+
+- Meta Business Portfolio setup and business verification.
+- Meta App Review.
+- Advanced Access for required permissions, including:
+  - `business_management`
+  - `whatsapp_business_management`
+- Tech Provider approval.
+- Access Verification.
+- Embedded Signup configuration.
+- WhatsApp Coexistence eligibility and support for the business's phone number.
+
+These requirements are necessary for the intended platform-managed onboarding experience. Availability and eligibility depend on Meta's policies and supported regions.
+
+A temporary access token is suitable for testing but is not a permanent production credential.
+
+---
+
+## Technology Stack
+
+| Area | Technology |
+|---|---|
+| Frontend | React, Vite, TypeScript |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| Routing | React Router |
+| State Management | Zustand |
+| Data Tables | TanStack Table |
+| Local Database | IndexedDB, Dexie.js |
+| Excel Processing | ExcelJS |
+| Backend | Python, FastAPI |
+| Authentication | Supabase Auth |
+| Platform Metadata | Supabase |
+| AI Providers | Gemini, Groq, Mistral |
+| Messaging | WhatsApp Business Cloud API |
+| Signup Integration | Meta Embedded Signup |
+| Business Messaging | WhatsApp Coexistence |
+
+---
+
+## System Architecture
+
+Orderly is designed to keep business records under the seller's control while using backend services for messaging integration and temporary event delivery.
 
 ```text
 Customer
    |
-   | WhatsApp Message
+   v
+WhatsApp Business
+   |
    v
 Meta WhatsApp Cloud API
    |
-   | Webhook
    v
 FastAPI Backend
    |
-   | Verify & Process
    v
-Supabase
+Webhook Verification
    |
-   | Temporary Events
+   v
+Temporary Event Queue
+   |
    v
 Orderly Dashboard
    |
-   | Save Business Data
    v
-Browser IndexedDB
+IndexedDB
+   |
+   v
+AI Order Extraction
+   |
+   v
+Seller Review and Approval
+   |
+   v
+Order Management
+   |
+   v
+Excel Export and Profit Reports
 ```
 
-**Architecture highlights:**
+### Data Storage
 
-- Supabase manages authentication, roles, and temporary platform data.
-- IndexedDB stores business data locally in the user's browser.
-- FastAPI handles AI requests, message processing, and calculations.
-- AI extracts and classifies information, while the seller remains in control of business decisions.
-- Excel files are generated and processed in the browser.
+**IndexedDB**
+- Stores the seller's business orders and related operational records locally in the browser.
+- Keeps customer and order information under the seller's control.
+
+**Supabase**
+- Handles authentication and account-related metadata.
+- Supports the temporary event queue used for message delivery.
+
+**FastAPI**
+- Handles WhatsApp webhook verification and incoming events.
+- Processes integration requests.
+- Coordinates temporary event delivery to the dashboard.
+
+Temporary events are removed when acknowledged by the dashboard. Undelivered events are subject to expiration, so the system does not promise complete recovery of every message.
 
 ---
 
-## 🚀 Getting Started
+## Order Management Workflow
+
+1. A customer sends a message through WhatsApp.
+2. Meta delivers the message to the configured webhook.
+3. The backend verifies and queues the incoming event.
+4. The dashboard receives the message.
+5. The seller selects a conversation for order extraction.
+6. AI prepares a structured order draft.
+7. The seller reviews and edits the extracted details.
+8. The seller sends the buyer confirmation.
+9. The customer's reply is classified.
+10. The seller manages the order through confirmation and dispatch.
+11. Orders can be exported to Excel.
+12. Profit reports can be calculated using the seller's purchase-price information.
+
+---
+
+## AI Processing
+
+Orderly is designed to use AI to reduce manual work while keeping the seller responsible for business decisions.
+
+The AI can help identify:
+
+- Customer name and contact information.
+- Product details.
+- Size and quantity.
+- Delivery address.
+- Agreed price.
+- Missing information.
+- Unclear order details.
+- Suggested dispatch notes.
+
+The planned AI provider fallback order is:
+
+1. Gemini
+2. Groq
+3. Mistral
+
+AI-generated information must be reviewed by the seller before it is used for order confirmation or other business actions.
+
+---
+
+## Privacy and Data Handling
+
+Orderly is designed around seller-controlled business data.
+
+- Business orders and operational records are intended to remain in the seller's browser storage.
+- Supabase is used for authentication, account metadata, and temporary event delivery.
+- Backup files are saved under the seller's control rather than passing through Orderly's server.
+- AI processing should use platform-managed credentials.
+- Synthetic data should be used for demonstrations and testing.
+- Real customer information should not be sent through free AI services during prototype demonstrations.
+
+Browser storage can be lost if browser data or the device is lost. Sellers should maintain backups of important business records.
+
+---
+
+## Project Setup
 
 ### Prerequisites
 
-Before running Orderly, make sure you have:
+- Node.js
+- Python
+- Supabase account
+- Meta Developer account
+- WhatsApp Cloud API test configuration
 
-- Node.js and npm
-- Python 3.11+
-- A Supabase project
-- Google OAuth credentials
-- A Meta Developer account with WhatsApp Cloud API access
-- At least one supported AI provider API key
+### Environment Configuration
 
-### 1. Clone the Repository
+The exact environment variable names should match the application's implementation.
+
+Typical configuration may include:
+
+```env
+# Supabase
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+SUPABASE_JWT_SECRET=
+
+# WhatsApp Cloud API
+WHATSAPP_ACCESS_TOKEN=
+WHATSAPP_PHONE_NUMBER_ID=
+WHATSAPP_BUSINESS_ACCOUNT_ID=
+WHATSAPP_APP_SECRET=
+WHATSAPP_VERIFY_TOKEN=
+
+# AI Providers
+GEMINI_API_KEY=
+GROQ_API_KEY=
+MISTRAL_API_KEY=
+```
+
+Keep secret keys private. Never commit access tokens, service-role keys, or other credentials to a public repository.
+
+### Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/orderly-whatsapp-order-management.git
-
 cd orderly-whatsapp-order-management
 ```
 
-### 2. Set Up the Frontend
-
-```bash
-cd frontend
-
-npm install
-```
-
-Create your frontend environment file:
-
-```bash
-cp .env.example .env
-```
-
-Configure the following variables:
-
-```env
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-VITE_API_BASE_URL=
-```
-
-Start the frontend development server using the available Vite development script:
-
-```bash
-npm run dev
-```
-
-### 3. Set Up the Backend
-
-Open another terminal:
-
-```bash
-cd backend
-```
-
-Create and activate a Python virtual environment:
-
-```bash
-python -m venv venv
-```
-
-Activate it:
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-**macOS / Linux:**
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Create your backend environment file:
-
-```bash
-cp .env.example .env
-```
-
-Configure the required environment variables.
-
-### 4. Configure Supabase
-
-1. Create a Supabase project.
-2. Configure Google OAuth under Authentication Providers.
-3. Add the appropriate redirect URLs.
-4. Apply the database schema and security policies from the project documentation.
-5. Configure the required environment variables.
-
-### 5. Configure WhatsApp Cloud API
-
-1. Create a Meta Developer application.
-2. Configure WhatsApp Cloud API.
-3. Add the test phone number.
-4. Configure the webhook URL and verification token.
-5. Add the required webhook subscription.
-6. Configure the WhatsApp credentials in the backend environment.
-
-### 6. Configure AI Providers
-
-Add API keys and model names for the supported providers:
-
-- Google Gemini
-- Groq
-- Mistral
-
-Orderly supports provider fallback so that extraction and classification can continue when a configured provider is unavailable.
+Install dependencies and configure the frontend and backend according to their respective project configuration files.
 
 ---
 
-## 🔑 Environment Variables
+## Project Structure
 
-### Frontend
-
-| Variable                 | Description                   |
-| ------------------------ | ----------------------------- |
-| `VITE_SUPABASE_URL`      | Supabase project URL          |
-| `VITE_SUPABASE_ANON_KEY` | Supabase public/anonymous key |
-| `VITE_API_BASE_URL`      | Backend API URL               |
-
-### Backend
-
-| Variable                    | Description                    |
-| --------------------------- | ------------------------------ |
-| `APP_ENV`                   | Application environment        |
-| `FRONTEND_ORIGIN`           | Frontend origin for CORS       |
-| `PRODUCT_NAME`              | Product name                   |
-| `SUPABASE_URL`              | Supabase project URL           |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key      |
-| `SUPABASE_JWT_SECRET`       | JWT verification secret        |
-| `WA_ACCESS_TOKEN`           | WhatsApp access token          |
-| `WA_APP_SECRET`             | Meta application secret        |
-| `WA_VERIFY_TOKEN`           | Webhook verification token     |
-| `WA_GRAPH_API_VERSION`      | Meta Graph API version         |
-| `GEMINI_API_KEY`            | Gemini API key                 |
-| `GEMINI_MODEL`              | Gemini model name              |
-| `GROQ_API_KEY`              | Groq API key                   |
-| `GROQ_MODEL`                | Groq model name                |
-| `MISTRAL_API_KEY`           | Mistral API key                |
-| `MISTRAL_MODEL`             | Mistral model name             |
-| `AI_PROVIDER_ORDER`         | AI provider fallback order     |
-| `AI_TIMEOUT_SECONDS`        | AI request timeout             |
-| `QUEUE_TTL_HOURS`           | Temporary event queue lifetime |
-| `PHONE_HASH_SALT`           | Salt used for phone hashing    |
-
-**Security:** Never commit `.env` files, API keys, access tokens, or service role credentials to GitHub.
-
----
-
-## 📂 Project Structure
+The intended project organization is:
 
 ```text
-orderly-whatsapp-order-management/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   ├── features/
-│   │   │   ├── auth/
-│   │   │   ├── chats/
-│   │   │   ├── orders/
-│   │   │   ├── excel/
-│   │   │   ├── profit/
-│   │   │   ├── data/
-│   │   │   └── settings/
-│   │   ├── components/
-│   │   └── lib/
-│   ├── .env.example
-│   └── package.json
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── config.py
-│   │   ├── auth.py
-│   │   ├── routers/
-│   │   ├── services/
-│   │   ├── models.py
-│   │   └── prompts.py
-│   ├── tests/
-│   ├── requirements.txt
-│   └── .env.example
-│
-├── scripts/
-│   └── send_fake_webhook.py
-│
-├── synthetic-data/
-│
-└── docs/
+orderly/
+|
+|-- frontend/
+|   |-- src/
+|   |-- public/
+|   |-- package.json
+|
+|-- backend/
+|   |-- app/
+|   |-- requirements.txt
+|
+|-- docs/
+|
+|-- scripts/
+|
+|-- synthetic-data/
+|
+|-- README.md
 ```
 
----
-
-## 🔄 Order Workflow
-
-```text
-Customer Sends WhatsApp Message
-              |
-              v
-       Message Received
-              |
-              v
-       AI Extracts Details
-              |
-              v
-      Seller Reviews Order
-              |
-              v
-     Buyer Confirmation Sent
-              |
-              v
-      Customer Replies
-              |
-       +------+------+
-       |      |      |
-      Yes   Change  Cancel
-       |      |      |
-       v      v      v
-   Confirmed Update Cancelled
-       |
-       v
-   Dispatched
-```
-
-**Important:** AI prepares drafts and classifies replies. The seller makes the final decisions about confirming and dispatching orders.
+Actual folders and filenames may vary according to the repository implementation.
 
 ---
 
-## 🔒 Privacy & Data Handling
+## Excel Data Handling
 
-Orderly is designed with a local-first business data architecture.
+Orderly uses Excel as a convenient way for sellers to manage and review their order records.
 
-- Business messages, orders, purchase prices, and audit history are stored in browser IndexedDB.
-- Supabase stores authentication and platform-related data.
-- The backend uses a temporary event queue for incoming and outgoing message synchronization.
-- Message content, phone numbers, and customer addresses must not appear in server logs.
-- Business data is not automatically synchronized across multiple devices.
-- Users should download regular backups to protect their local business data.
+The import process is designed to:
 
----
+- Validate uploaded data.
+- Preview changes before applying them.
+- Match existing orders using Order IDs.
+- Identify conflicting information.
+- Prevent silent overwrites.
 
-## ⚠️ Prototype Limitations
-
-Orderly is initially designed as a hackathon prototype.
-
-- WhatsApp integration uses a Meta test phone number.
-- The test number can message only verified recipient numbers.
-- Meta temporary access tokens need to be refreshed when they expire.
-- Free-form WhatsApp replies are supported within the 24-hour customer-service window.
-- WhatsApp message templates for communication outside that window are not implemented.
-- Real multi-device synchronization and real multi-user staff accounts are outside the current scope.
-- Business data is stored locally, so clearing browser data or losing the device can result in data loss without a backup.
+The dashboard remains the primary source of truth.
 
 ---
 
-## 🎯 Our Vision
+## Demonstration and Testing
 
-We believe managing customer orders should be simple, organized, and stress-free.
+The demonstration environment can use Meta's WhatsApp test number and synthetic customer/order information.
 
-Small business owners deserve tools that save time, reduce manual work, and help them focus on growing their businesses.
+The test environment is intended to demonstrate the messaging workflow, webhook processing, AI-assisted order extraction, order management, Excel export, and profit calculations.
 
-**Orderly transforms WhatsApp conversations into organized business operations.**
-
----
-
-## 👩‍💻 Built With
-
-Created with a vision to make business management smarter and more accessible for small businesses.
+Meta test numbers have restrictions, including recipient verification requirements. Temporary access tokens also expire and need to be renewed.
 
 ---
 
-\<p align="center">
-&#x20; \*\*🌿 Orderly — Bring Order to Your Business.\*\*
-\</p>
+## About Orderly
+
+Orderly is designed to help small businesses spend less time organizing messages and more time managing their business.
+
+By bringing WhatsApp conversations, AI-assisted order extraction, confirmations, order tracking, Excel management, and profit calculations into one dashboard, Orderly aims to make everyday business operations simpler and more organized.
+
+**Orderly — Bring Order to Your Business.**
