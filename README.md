@@ -371,3 +371,10 @@ Orderly is designed to help small businesses spend less time organizing messages
 By bringing WhatsApp conversations, AI-assisted order extraction, confirmations, order tracking, Excel management, and profit calculations into one dashboard, Orderly aims to make everyday business operations simpler and more organized.
 
 **Orderly — Bring Order to Your Business.**
+## Live Demo
+
+Try Orderly here:
+
+**[Open Orderly Dashboard](https://orderly-whatsapp-order-managing.ai.studio/)**
+
+Explore the dashboard and experience how Orderly helps organize WhatsApp business orders.
